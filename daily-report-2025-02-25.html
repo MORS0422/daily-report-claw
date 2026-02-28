@@ -68,8 +68,29 @@
     </style>
 </head>
 <body class="text-slate-200 font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800/50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    <span>返回首页</span>
+                </a>
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-claw-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">
+                        OC
+                    </div>
+                    <span class="text-slate-400 hidden md:inline">OpenClaw</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <header class="relative overflow-hidden py-20 px-6">
+    <header class="pt-16 relative overflow-hidden py-20 px-6">
         <div class="absolute inset-0 opacity-30">
             <div class="absolute top-0 left-1/4 w-96 h-96 bg-claw-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
             <div class="absolute top-0 right-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
