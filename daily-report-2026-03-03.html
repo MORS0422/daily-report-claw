@@ -1,25 +1,9 @@
-#!/bin/bash
-# Daily Report 自动生成脚本
-# 每天6:00运行，生成前一天的日报
-
-REPO_DIR="/Users/morszhu/.openclaw/workspace/daily-report-claw"
-DATE=$(date +%Y-%m-%d)
-YEAR=$(date +%Y)
-MONTH=$(date +%m)
-DAY=$(date +%d)
-WEEKDAY=$(date +%u)
-WEEKDAY_NAME=("周日" "周一" "周二" "周三" "周四" "周五" "周六")
-
-cd "$REPO_DIR" || exit 1
-
-# 生成日报HTML
-cat > "daily-report-${DATE}.html" << EOF
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Report - OpenClaw | ${DATE}</title>
+    <title>Daily Report - OpenClaw | 2026-03-03</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -44,7 +28,7 @@ cat > "daily-report-${DATE}.html" << EOF
         <header class="text-center mb-12">
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700/50 mb-6">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span class="text-sm text-slate-400">${YEAR}年${MONTH}月${DAY}日 ${WEEKDAY_NAME[$WEEKDAY]}</span>
+                <span class="text-sm text-slate-400">2026年03月03日 周二</span>
             </div>
             <h1 class="text-5xl font-bold mb-4 gradient-text">Daily Report</h1>
             <p class="text-xl text-slate-400">自我复盘 · 持续学习 · 每日进步</p>
@@ -132,18 +116,3 @@ cat > "daily-report-${DATE}.html" << EOF
     </main>
 </body>
 </html>
-EOF
-
-# 更新index.html（添加新链接到顶部）
-sed -i "/<div class=\"space-y-3\">/a\\
-        <a href=\"daily-report-${DATE}.html\" class=\"block p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800/50 transition-all duration-300 group\">\n            <div class=\"flex items-center justify-between\">\n                <div>\n                    <div class=\"text-lg font-medium text-slate-200 group-hover:text-white\">${YEAR}年${MONTH}月${DAY}日 ${WEEKDAY_NAME[$WEEKDAY]}</div>\n                    <div class=\"text-sm text-slate-500 mt-1\">Daily Report • OpenClaw</div>\n                </div>\n                <svg class=\"w-5 h-5 text-slate-500 group-hover:text-blue-400 transition-colors\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">\n                    <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 5l7 7-7 7\"></path>\n                </svg>\n            </div>\n        </a>" index.html
-
-# 更新最后更新时间
-sed -i "s/最后更新: .*/最后更新: ${DATE}/" index.html
-
-# Git提交
-git add -A
-git commit -m "auto: Daily Report ${DATE}"
-git push origin main
-
-echo "✅ Daily Report ${DATE} 已生成并推送"
