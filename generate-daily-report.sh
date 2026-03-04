@@ -134,12 +134,39 @@ cat > "daily-report-${DATE}.html" << EOF
 </html>
 EOF
 
-# 更新index.html（添加新链接到顶部）
-sed -i "/<div class=\"space-y-3\">/a\\
-        <a href=\"daily-report-${DATE}.html\" class=\"block p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800/50 transition-all duration-300 group\">\n            <div class=\"flex items-center justify-between\">\n                <div>\n                    <div class=\"text-lg font-medium text-slate-200 group-hover:text-white\">${YEAR}年${MONTH}月${DAY}日 ${WEEKDAY_NAME[$WEEKDAY]}</div>\n                    <div class=\"text-sm text-slate-500 mt-1\">Daily Report • OpenClaw</div>\n                </div>\n                <svg class=\"w-5 h-5 text-slate-500 group-hover:text-blue-400 transition-colors\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">\n                    <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 5l7 7-7 7\"></path>\n                </svg>\n            </div>\n        </a>" index.html
+# 更新index.html - 使用Python处理（跨平台兼容）
+python3 << PYTHON_SCRIPT
+import re
+
+# 读取index.html
+with open('index.html', 'r', encoding='utf-8') as f:
+    content = f.read()
+
+# 添加新日报链接到列表顶部
+new_link = '''        <a href="daily-report-${DATE}.html" class="block p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800/50 transition-all duration-300 group">
+            <div class="flex items-center justify-between">
+                <div>
+                    <div class="text-lg font-medium text-slate-200 group-hover:text-white">${YEAR}年${MONTH}月${DAY}日 ${WEEKDAY_NAME[$WEEKDAY]}</div>
+                    <div class="text-sm text-slate-500 mt-1">Daily Report • OpenClaw</div>
+                </div>
+                <svg class="w-5 h-5 text-slate-500 group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </div>
+        </a>'''
+
+# 在 space-y-3 div 后插入新链接
+content = re.sub(r'(<div class="space-y-3">)', r'\1\n' + new_link, content)
 
 # 更新最后更新时间
-sed -i "s/最后更新: .*/最后更新: ${DATE}/" index.html
+content = re.sub(r'最后更新: .+', '最后更新: ${DATE}', content)
+
+# 写回文件
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(content)
+
+print("✅ index.html 已更新")
+PYTHON_SCRIPT
 
 # Git提交
 git add -A
