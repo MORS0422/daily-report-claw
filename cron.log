@@ -13,3 +13,9 @@
 [18:30] 开始生成日报: 2026-03-04
 [18:30] 日报生成完成: /Users/morszhu/workspace/dailyreport-claw/daily-report-2026-03-04.html
 ✅ index.html 已更新
+[main 52e3e91] auto: Daily Report 2026-03-07
+ 3 files changed, 35 insertions(+), 85 deletions(-)
+To github.com:MORS0422/daily-report-claw.git
+   1f123c7..52e3e91  main -> main
+✅ Daily Report 2026-03-07 已生成并推送
+✅ index.html 已更新
