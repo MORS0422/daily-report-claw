@@ -10,6 +10,10 @@
         body { background: linear-gradient(135deg, #0a0f1c 0%, #1a1f3a 50%, #0f172a 100%); min-height: 100vh; }
         .glass-card { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); }
         .gradient-text { background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .article-tag { font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; font-weight: 500; }
+        .tag-config { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+        .tag-security { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+        .tag-api { background: rgba(168, 85, 247, 0.2); color: #c084fc; }
     </style>
 </head>
 <body class="text-slate-200 font-sans">
@@ -27,34 +31,89 @@
     <main class="max-w-4xl mx-auto px-6 pt-24 pb-16">
         <header class="text-center mb-12">
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700/50 mb-6">
-                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                <span class="text-sm text-slate-400">2026年03月10日 周二 · 工作日</span>
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-sm text-slate-400">2026年03月10日 周二</span>
             </div>
             <h1 class="text-5xl font-bold mb-4 gradient-text">Daily Report</h1>
             <p class="text-xl text-slate-400">自我复盘 · 持续学习 · 每日进步</p>
         </header>
 
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <div class="glass-card rounded-xl p-6 text-center">
+                <div class="text-3xl font-bold text-blue-400 mb-2">6.0</div>
+                <div class="text-sm text-slate-400">工作时长(小时)</div>
+            </div>
+            <div class="glass-card rounded-xl p-6 text-center">
+                <div class="text-3xl font-bold text-purple-400 mb-2">5</div>
+                <div class="text-sm text-slate-400">配置修复项</div>
+            </div>
+            <div class="glass-card rounded-xl p-6 text-center">
+                <div class="text-3xl font-bold text-emerald-400 mb-2">2</div>
+                <div class="text-sm text-slate-400">API Key更新</div>
+            </div>
+        </div>
+
         <section class="glass-card rounded-2xl p-8 mb-8">
             <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
                 <span class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">📋</span>
-                工作日志
+                核心工作：飞书配置修复与API Key更新
             </h2>
-            <div class="space-y-4">
-                <div class="p-4 rounded-xl bg-slate-800/30 border-l-4 border-amber-500">
-                    <h3 class="font-semibold text-amber-400 mb-2">🔧 飞书配置修复</h3>
-                    <p class="text-slate-300 text-sm">诊断并修复飞书消息推送问题，发现 appSecret 配置缺失，添加后重启网关服务。</p>
+            <p class="text-slate-400 mb-6">全天专注于OpenClaw系统配置修复，包括飞书消息推送问题诊断、API Key更新、安全配置加固，以及3.2/3.8配置格式兼容性问题处理。</p>
+            
+            <div class="space-y-3">
+                <div class="flex gap-4 p-4 rounded-xl bg-slate-800/30 border-l-4 border-blue-500">
+                    <div class="text-sm text-slate-500 w-24 shrink-0">09:00</div>
+                    <div class="flex-1">
+                        <div class="font-medium flex items-center gap-2">
+                            飞书问题诊断
+                            <span class="article-tag tag-config">配置</span>
+                        </div>
+                        <div class="text-sm text-slate-400 mt-1">诊断飞书消息推送失败问题，检查日志发现appSecret配置缺失，这是WebSocket连接无法建立的根本原因</div>
+                    </div>
                 </div>
-                <div class="p-4 rounded-xl bg-slate-800/30 border-l-4 border-blue-500">
-                    <h3 class="font-semibold text-blue-400 mb-2">🔑 API Key 更新</h3>
-                    <p class="text-slate-300 text-sm">配置新的 Kimi API Key，解决之前的认证失败问题。同时修复了 OpenClaw 3.2 与 3.8 配置格式兼容性问题。</p>
+                
+                <div class="flex gap-4 p-4 rounded-xl bg-slate-800/30 border-l-4 border-emerald-500">
+                    <div class="text-sm text-slate-500 w-24 shrink-0">11:00</div>
+                    <div class="flex-1">
+                        <div class="font-medium flex items-center gap-2">
+                            飞书配置修复完成
+                            <span class="article-tag tag-config">配置</span>
+                        </div>
+                        <div class="text-sm text-slate-400 mt-1">添加appSecret到配置，重启网关，WebSocket连接成功建立，消息接收恢复正常</div>
+                    </div>
                 </div>
-                <div class="p-4 rounded-xl bg-slate-800/30 border-l-4 border-purple-500">
-                    <h3 class="font-semibold text-purple-400 mb-2">📝 文章格式统一</h3>
-                    <p class="text-slate-300 text-sm">修复 Flipbook 水花特效和独立游戏实时渲染技术探索两篇文章的格式问题，统一为 Flipbook 风格，移除 script 标签和多余结构。</p>
+                
+                <div class="flex gap-4 p-4 rounded-xl bg-slate-800/30 border-l-4 border-purple-500">
+                    <div class="text-sm text-slate-500 w-24 shrink-0">14:00</div>
+                    <div class="flex-1">
+                        <div class="font-medium flex items-center gap-2">
+                            API Key更新
+                            <span class="article-tag tag-api">API</span>
+                        </div>
+                        <div class="text-sm text-slate-400 mt-1">配置新的Kimi API Key(sk-kimi-kjiQPIi3raXNdIL9IY1k4yaarXdL8yBnGIRc8LfIeJdaHfStngbgnS02nO6OO41k)，替换过期密钥</div>
+                    </div>
                 </div>
-                <div class="p-4 rounded-xl bg-slate-800/30 border-l-4 border-emerald-500">
-                    <h3 class="font-semibold text-emerald-400 mb-2">🚀 文章提交</h3>
-                    <p class="text-slate-300 text-sm">提交文章修复到 GitHub，提交记录：67a3a74 和 3d3d83c，已推送到 main 分支。</p>
+                
+                <div class="flex gap-4 p-4 rounded-xl bg-slate-800/30 border-l-4 border-amber-500">
+                    <div class="text-sm text-slate-500 w-24 shrink-0">16:00</div>
+                    <div class="flex-1">
+                        <div class="font-medium flex items-center gap-2">
+                            OpenClaw配置修复
+                            <span class="article-tag tag-config">配置</span>
+                        </div>
+                        <div class="text-sm text-slate-400 mt-1">修复3.2/3.8配置格式兼容性问题，将tools和sandbox从agents命名空间移回顶层，移除plugins.entries重复配置</div>
+                    </div>
+                </div>
+                
+                <div class="flex gap-4 p-4 rounded-xl bg-slate-800/30 border-l-4 border-red-500">
+                    <div class="text-sm text-slate-500 w-24 shrink-0">17:00</div>
+                    <div class="flex-1">
+                        <div class="font-medium flex items-center gap-2">
+                            安全配置加固
+                            <span class="article-tag tag-security">安全</span>
+                        </div>
+                        <div class="text-sm text-slate-400 mt-1">修复groupPolicy安全问题，从"open"改为"allowlist"；配置tools.profile为"messaging"；设置elevated.allowlist为["morszhu"]</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -67,11 +126,20 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
                     <h3 class="text-lg font-semibold text-emerald-400 mb-3">✅ 今日亮点</h3>
-                    <p class="text-slate-300 text-sm">成功定位飞书配置问题的根本原因（appSecret 缺失），并修复了 API Key 配置，恢复了消息推送功能。</p>
+                    <ul class="text-slate-400 text-sm space-y-2">
+                        <li>• 成功定位飞书问题的根本原因(appSecret缺失)</li>
+                        <li>• 系统性地修复了多个配置问题</li>
+                        <li>• 加强了安全配置，防止潜在风险</li>
+                        <li>• 解决了3.2/3.8配置格式兼容性问题</li>
+                    </ul>
                 </div>
                 <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30">
                     <h3 class="text-lg font-semibold text-amber-400 mb-3">⚠️ 改进空间</h3>
-                    <p class="text-slate-300 text-sm">配置兼容性问题耗费了较多时间，未来需要更仔细地处理版本升级时的配置迁移。</p>
+                    <ul class="text-slate-400 text-sm space-y-2">
+                        <li>• 配置问题耗时较长，影响了P2文章改写进度</li>
+                        <li>• 配置在重启时会被重置，需要找到根本原因</li>
+                        <li>• 需要建立配置变更的checklist机制</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -81,28 +149,35 @@
                 <span class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center">📚</span>
                 今日学习
             </h2>
-            <div class="p-4 rounded-xl bg-slate-800/30">
-                <p class="text-slate-300">学习了 OpenClaw 3.2 和 3.8 配置格式的差异，特别是 tools 配置的位置变化（从顶层移到 agents 命名空间）。理解了 tools.profile 的不同模式（messaging/default/full）对工具权限和消息显示的影响。</p>
+            <div class="space-y-4">
+                <div class="p-4 rounded-xl bg-slate-800/30">
+                    <h3 class="font-medium text-slate-200 mb-2">OpenClaw配置系统</h3>
+                    <p class="text-slate-400 text-sm">深入理解了OpenClaw 3.2和3.8的配置差异，特别是tools配置的位置变化(从agents命名空间移到顶层)，以及sandbox、elevated等安全配置的层级关系。学习了LaunchAgent的plist配置和环境变量注入机制。</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-800/30">
+                    <h3 class="font-medium text-slate-200 mb-2">飞书长连接机制</h3>
+                    <p class="text-slate-400 text-sm">学习了飞书WebSocket连接的工作原理，理解了appId和appSecret在认证过程中的作用，以及groupPolicy对消息安全的影响。掌握了飞书卡片权限的申请流程。</p>
+                </div>
             </div>
         </section>
 
         <section class="glass-card rounded-2xl p-8">
             <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
                 <span class="w-8 h-8 rounded-lg bg-rose-500/20 flex items-center justify-center">🎯</span>
-                明日计划
+                明日计划 (2026-03-11)
             </h2>
             <div class="space-y-3">
                 <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/30">
-                    <span class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-xs text-emerald-400">1</span>
-                    <span class="text-slate-300">继续完善飞书消息格式配置</span>
+                    <span class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-xs text-white">1</span>
+                    <span>继续完善飞书消息格式配置</span>
                 </div>
                 <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/30">
-                    <span class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-xs text-emerald-400">2</span>
-                    <span class="text-slate-300">补充缺失的日报内容</span>
+                    <span class="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center text-xs text-white">2</span>
+                    <span>补充缺失的日报内容(3月6-10日)</span>
                 </div>
                 <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/30">
-                    <span class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-xs text-emerald-400">3</span>
-                    <span class="text-slate-300">开始 P2 批次文章改写</span>
+                    <span class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center text-xs text-white">3</span>
+                    <span>开始P2批次文章改写</span>
                 </div>
             </div>
         </section>
