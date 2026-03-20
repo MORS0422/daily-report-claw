@@ -239,6 +239,7 @@ PYTHON_SCRIPT
 # 将 Python 输出保存到变量
 PYTHON_OUTPUT=$(python3 << 'PYTHON_SCRIPT'
 import re
+import os
 
 memory_content = open("$WORKSPACE_DIR/memory/${YESTERDAY}.md").read() if os.path.exists("$WORKSPACE_DIR/memory/${YESTERDAY}.md") else ""
 # ... 上面的 Python 代码 ...
