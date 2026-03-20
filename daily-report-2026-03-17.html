@@ -36,15 +36,15 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <div class="glass-card rounded-xl p-6 text-center">
-                <div class="text-3xl font-bold text-blue-400 mb-2">6</div>
+                <div class="text-3xl font-bold text-blue-400 mb-2">8</div>
                 <div class="text-sm text-slate-400">工作时长(小时)</div>
             </div>
             <div class="glass-card rounded-xl p-6 text-center">
-                <div class="text-3xl font-bold text-purple-400 mb-2">1</div>
+                <div class="text-3xl font-bold text-purple-400 mb-2">5</div>
                 <div class="text-sm text-slate-400">完成任务数</div>
             </div>
             <div class="glass-card rounded-xl p-6 text-center">
-                <div class="text-3xl font-bold text-emerald-400 mb-2">79</div>
+                <div class="text-3xl font-bold text-emerald-400 mb-2">85</div>
                 <div class="text-sm text-slate-400">今日评分</div>
             </div>
         </div>
@@ -59,7 +59,35 @@
                     <div class="text-sm text-slate-500 w-20 shrink-0">09:00</div>
                     <div>
                         <div class="font-medium">工作记录</div>
-                        <div class="text-sm text-slate-400 mt-1">今日工作记录待补充</div>
+                        <div class="text-sm text-slate-400 mt-1">- 发现从 03-14 起的日报都是模板化内容（"今日工作记录待补充"、"保持高效工作状态"）</div>
+                    </div>
+                </div>
+                <div class="flex gap-4 p-4 rounded-xl bg-slate-800/30 border-l-4 border-purple-500">
+                    <div class="text-sm text-slate-500 w-20 shrink-0">11:00</div>
+                    <div>
+                        <div class="font-medium">工作记录</div>
+                        <div class="text-sm text-slate-400 mt-1">2. 修复 generate-daily-report-smart.sh 中的 Python 错误</div>
+                    </div>
+                </div>
+                <div class="flex gap-4 p-4 rounded-xl bg-slate-800/30 border-l-4 border-emerald-500">
+                    <div class="text-sm text-slate-500 w-20 shrink-0">13:00</div>
+                    <div>
+                        <div class="font-medium">工作记录</div>
+                        <div class="text-sm text-slate-400 mt-1">3. 添加 `import sys` 到 Python 脚本开头</div>
+                    </div>
+                </div>
+                <div class="flex gap-4 p-4 rounded-xl bg-slate-800/30 border-l-4 border-amber-500">
+                    <div class="text-sm text-slate-500 w-20 shrink-0">15:00</div>
+                    <div>
+                        <div class="font-medium">工作记录</div>
+                        <div class="text-sm text-slate-400 mt-1">- 定位并修复日报系统问题</div>
+                    </div>
+                </div>
+                <div class="flex gap-4 p-4 rounded-xl bg-slate-800/30 border-l-4 border-rose-500">
+                    <div class="text-sm text-slate-500 w-20 shrink-0">17:00</div>
+                    <div>
+                        <div class="font-medium">工作记录</div>
+                        <div class="text-sm text-slate-400 mt-1">- 修复 pScatter 和 3DGS 文章格式</div>
                     </div>
                 </div>
 
@@ -75,8 +103,9 @@
                 <div>
                     <h3 class="text-lg font-semibold text-emerald-400 mb-2">✅ 今日亮点</h3>
                     <ul class="space-y-2 text-slate-300">
-                        <li class="flex items-start gap-2"><span class="text-emerald-400 mt-1">•</span>保持高效工作状态</li>
-                        <li class="flex items-start gap-2"><span class="text-emerald-400 mt-1">•</span>按时完成计划任务</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-400 mt-1">•</span>03-17 工作日志</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-400 mt-1">•</span>发现从 03-14 起的日报都是模板化内容（"今日工作记录待补充"、"保持高效工作状态"）</li>
+                        <li class="flex items-start gap-2"><span class="text-emerald-400 mt-1">•</span>根本原因：没有写入 memory/YYYY-MM-DD.md 文件，日报脚本提取不到内容</li>
                     </ul>
                 </div>
                 <div>
@@ -97,7 +126,12 @@
                 <div class="p-4 rounded-xl bg-slate-800/50">
                     <div class="text-sm text-slate-500 mb-2">技术学习</div>
                     <div class="font-semibold text-lg mb-2">知识点 1</div>
-                    <p class="text-sm text-slate-400">学习项目管理和技术实现的最佳实践</p>
+                    <p class="text-sm text-slate-400">每天早上应该检查昨日日报是否正常生成</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-800/50">
+                    <div class="text-sm text-slate-500 mb-2">技术学习</div>
+                    <div class="font-semibold text-lg mb-2">知识点 2</div>
+                    <p class="text-sm text-slate-400">Shell 脚本中 Python heredoc 的变量传递问题</p>
                 </div>
 
             </div>
@@ -111,15 +145,15 @@
             <div class="space-y-3">
                 <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/30">
                     <span class="w-6 h-6 rounded-full bg-slate-700 flex items-center justify-center text-xs">1</span>
-                    <span>继续推进当前项目</span>
+                    <span>重新生成 03-14 到 03-17 的高质量日报</span>
                 </div>
                 <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/30">
                     <span class="w-6 h-6 rounded-full bg-slate-700 flex items-center justify-center text-xs">2</span>
-                    <span>优化工作流程</span>
+                    <span>继续 Realtime Tech Library 的 P2 阶段2工作</span>
                 </div>
                 <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/30">
                     <span class="w-6 h-6 rounded-full bg-slate-700 flex items-center justify-center text-xs">3</span>
-                    <span>学习新技术</span>
+                    <span>修复 pScatter 和 3DGS 文章格式</span>
                 </div>
 
             </div>
